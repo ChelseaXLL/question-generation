@@ -27,7 +27,7 @@ Any datasets sharing this format work.
 - Create a sub data folder
 - Donwload squad datasets 2.0
 
-
+# Download the squad data
 ```python
 !mkdir squad
 !wget https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v2.0.json -O squad/train-v2.0.json
@@ -57,7 +57,7 @@ Any datasets sharing this format work.
     2021-09-20 13:52:01 (283 MB/s) - ‘dev-v2.0.json.1’ saved [4370528/4370528]
     
     
-
+# Format the data
 
 ```python
 from data_formatter import format_data
@@ -69,7 +69,7 @@ format_data('train-v2.0.json','dev-v2.0.json.json')
 ```
 
 
-# Preparing the data
+# Prepare the data for training
 
 
 ```python
@@ -85,7 +85,7 @@ prepare_data(args_dict)
     
     
 
-# Training script
+# Train the model
 
 
 ```python
@@ -198,7 +198,7 @@ run_qg(args_dict)
 
 # Testing the model
 
-
+## Generate questions based on 
 ```python
 from pipeline import pipeline
 
