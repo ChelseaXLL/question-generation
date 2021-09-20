@@ -27,7 +27,8 @@ Any datasets sharing this format work.
 - Create a sub data folder
 - Donwload squad datasets 2.0
 
-# Download the squad data
+# Download the data 
+
 ```python
 !mkdir squad
 !wget https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v2.0.json -O squad/train-v2.0.json
@@ -57,8 +58,8 @@ Any datasets sharing this format work.
     2021-09-20 13:52:01 (283 MB/s) - ‘dev-v2.0.json.1’ saved [4370528/4370528]
     
     
-# Format the data
 
+# Format the data
 ```python
 from data_formatter import format_data
 from prepare_data import prepare_data
@@ -69,7 +70,7 @@ format_data('train-v2.0.json','dev-v2.0.json.json')
 ```
 
 
-# Prepare the data for training
+# Prepare the data
 
 
 ```python
@@ -85,7 +86,7 @@ prepare_data(args_dict)
     
     
 
-# Train the model
+# Training script
 
 
 ```python
@@ -198,7 +199,7 @@ run_qg(args_dict)
 
 # Testing the model
 
-## Generate questions based on 
+## Generate questions based on keyword-based answer
 ```python
 from pipeline import pipeline
 
@@ -217,3 +218,20 @@ for sent in sents:
 
     What were the people who gave their name to Normandy in the 10th and 11th centuries?
     Where is Normandy located?
+    
+    
+## Generate questions based on sentences that contains answers
+```python
+from pipeline import pipeline
+
+model = pipeline('t5-base-qag-hl-batch20','QAG')
+
+context = '''
+The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse ("Norman" comes from "Norseman") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.
+'''
+
+sent = 'The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France.'
+
+model(context, sent)
+```
+    'What were the Normans in the 10th and 11th centuries?'
