@@ -65,7 +65,7 @@ from data_formatter import format_data
 from prepare_data import prepare_data
 from run import run_qg
 
-format_data('train-v2.0.json','dev-v2.0.json.json')
+format_data('train-v2.0.json','dev-v2.0.json')
 
 ```
 
