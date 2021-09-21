@@ -68,6 +68,7 @@ from run import run_qg
 format_data('train-v2.0.json','dev-v2.0.json')
 
 ```
+    09/21/2021 16:43:14 - INFO - data_fomatter -   Fomatted data has been saved into /shared/shawn/q_g/question-generations/T5_Model
 
 
 # Prepare the data
