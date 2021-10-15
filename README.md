@@ -1,7 +1,7 @@
 # question-generation
 
 T5-based answer-aware question generation model. 
-- Prepare the squad datasets (2.0)
+- Prepare the squad question answering datasets (2.0) & quac question answering data
 - Train the question-generation model
 - Use trained model to generatew questions
 
