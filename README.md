@@ -3,7 +3,7 @@
 T5-based answer-aware question generation model. 
 - Prepare the squad question answering datasets (2.0) & quac question answering data
 - Train the question-generation model
-- Use trained model to generatew questions
+- Use trained model to generate questions
 
 # Further actions:
 - Integrate Google API for entity extraction
